@@ -20,5 +20,10 @@
   <ItemGroup>
     <Folder Include="Context\" />
     <Folder Include="Entity\" />
+    <Folder Include="Entity\Users\" />
+    <Folder Include="Entity\UserProfile\" />
+    <Folder Include="Mappers\" />
+    <Folder Include="Mappers\UserProfile\" />
+    <Folder Include="Mappers\Users\" />
   </ItemGroup>
 </Project>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "x/U8eF8EW6IaOwuAI8hrcTMpn/7syaNP7aXeh4YDSkNgMVA41TaaL3yNvJ4qy8vcMOBeVjqPaWJs8Jr3vqGR5g==",
+  "dgSpecHash": "f9cb8lvXINBbDS+pOcP3T7fXkVwX+7ucKaloweMM1U7KvrPkfsot87zbmXfGxkx3giVWbJ2eeh1sisf/k5N9ew==",
   "success": true,
-  "projectFilePath": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBE/FinddocBE.csproj",
+  "projectFilePath": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBe/FinddocBe.csproj",
   "expectedPackageFiles": [
     "/Users/illia_shevchenko/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/illia_shevchenko/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/5.0.3/microsoft.aspnetcore.authentication.jwtbearer.5.0.3.nupkg.sha512",

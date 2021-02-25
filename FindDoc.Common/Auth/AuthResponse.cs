@@ -5,11 +5,14 @@ namespace FindDoc.Common.Auth
 {
     public class AuthResponse
     {
-        public string Status { get; set; }
+        public int Status { get; set; }
 
         public string Message { get; set; }
 
-        #nullable enable
-        public UserDto? User { get; set; }
+        public UserDto User { get; set; }
+
+        public string Token { get; set; }
+
+        public DateTime? Expiration { get; set; }
     }
 }

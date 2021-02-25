@@ -7416,13 +7416,14 @@
       "outputPath": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FindDoc.Data/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/illia_shevchenko/.config/NuGet/NuGet.Config"
+        "/Users/illia_shevchenko/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.1"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://www.myget.org/F/umbracoprereleases/api/v3/index.json": {}
       },
       "frameworks": {
         "netstandard2.1": {

@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBE/FinddocBE.csproj": {}
+    "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBe/FinddocBe.csproj": {}
   },
   "projects": {
     "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FindDoc.Common/FindDoc.Common.csproj": {
@@ -14,13 +14,14 @@
         "outputPath": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FindDoc.Common/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/illia_shevchenko/.config/NuGet/NuGet.Config"
+          "/Users/illia_shevchenko/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://www.myget.org/F/umbracoprereleases/api/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.1": {
@@ -70,13 +71,14 @@
         "outputPath": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FindDoc.Data/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/illia_shevchenko/.config/NuGet/NuGet.Config"
+          "/Users/illia_shevchenko/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://www.myget.org/F/umbracoprereleases/api/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.1": {
@@ -148,13 +150,14 @@
         "outputPath": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FindDoc.Services/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/illia_shevchenko/.config/NuGet/NuGet.Config"
+          "/Users/illia_shevchenko/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://www.myget.org/F/umbracoprereleases/api/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.1": {
@@ -203,23 +206,24 @@
         }
       }
     },
-    "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBE/FinddocBE.csproj": {
+    "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBe/FinddocBe.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBE/FinddocBE.csproj",
-        "projectName": "FinddocBE",
-        "projectPath": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBE/FinddocBE.csproj",
+        "projectUniqueName": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBe/FinddocBe.csproj",
+        "projectName": "FinddocBe",
+        "projectPath": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBe/FinddocBe.csproj",
         "packagesPath": "/Users/illia_shevchenko/.nuget/packages/",
-        "outputPath": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBE/obj/",
+        "outputPath": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBe/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/illia_shevchenko/.config/NuGet/NuGet.Config"
+          "/Users/illia_shevchenko/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://www.myget.org/F/umbracoprereleases/api/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {

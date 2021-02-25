@@ -5736,20 +5736,21 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBE/FinddocBE.csproj",
-      "projectName": "FinddocBE",
-      "projectPath": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBE/FinddocBE.csproj",
+      "projectUniqueName": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBE/FinddocBe.csproj",
+      "projectName": "FinddocBe",
+      "projectPath": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBE/FinddocBe.csproj",
       "packagesPath": "/Users/illia_shevchenko/.nuget/packages/",
       "outputPath": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBE/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/illia_shevchenko/.config/NuGet/NuGet.Config"
+        "/Users/illia_shevchenko/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://www.myget.org/F/umbracoprereleases/api/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {

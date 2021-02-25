@@ -31,5 +31,20 @@ namespace FinddocBE.Controllers.Auth
         {
             return await _authService.RegisterDoctorAsync(model);
         }
+
+        [HttpPost]
+        [Route("login")]
+        public async Task<ActionResult<AuthResponse>> LoginUserAsync(LoginModel model)
+        {
+            try
+            {
+                return Ok(await _authService.LoginUserAsync(model));
+                // TODO create new login exception
+            }
+            catch (Exception e)
+            {
+                return Unauthorized();
+            }
+        }
     }
 }
