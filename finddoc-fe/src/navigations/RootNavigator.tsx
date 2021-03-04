@@ -12,7 +12,10 @@ export default function() {
 
     useEffect(() => {
         let isMounted = true;
-        AsyncStorage.getItem('userId').then(res => {
+
+        //TODO check here
+
+        AsyncStorage.getItem('token').then(res => {
                 if (isMounted) setUserId(res)
         })
         return () => { isMounted = false };

@@ -5736,11 +5736,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBE/FinddocBe.csproj",
+      "projectUniqueName": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBe/FinddocBe.csproj",
       "projectName": "FinddocBe",
-      "projectPath": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBE/FinddocBe.csproj",
+      "projectPath": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBe/FinddocBe.csproj",
       "packagesPath": "/Users/illia_shevchenko/.nuget/packages/",
-      "outputPath": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBE/obj/",
+      "outputPath": "/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FinddocBe/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/illia_shevchenko/.nuget/NuGet/NuGet.Config"

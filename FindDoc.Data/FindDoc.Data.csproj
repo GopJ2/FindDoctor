@@ -25,5 +25,12 @@
     <Folder Include="Mappers\" />
     <Folder Include="Mappers\UserProfile\" />
     <Folder Include="Mappers\Users\" />
+    <Folder Include="Entity\UserProfile\Documents\" />
+    <Folder Include="Entity\UserProfile\Relatives\" />
+    <Folder Include="Entity\Appointments\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="Repositories\Appointments\" />
+    <Folder Include="UnitOfWork\" />
+    <Folder Include="Repositories\ApplicationUsers\" />
   </ItemGroup>
 </Project>

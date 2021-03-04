@@ -19,14 +19,131 @@ namespace FindDoc.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.3")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("FindDoc.Data.Entity.UserProfile.Documents.CerificationDocuments", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CityOfStudying")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Direction")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DoctorProfileApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Result")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DoctorProfileApplicationUserId");
+
+                    b.ToTable("CerificationDocuments");
+                });
+
+            modelBuilder.Entity("FindDoc.Data.Entity.UserProfile.Documents.SecureDocuments", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("DoctorProfileApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("DocumentId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DocumentName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsApproved")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DoctorProfileApplicationUserId");
+
+                    b.ToTable("SecureDocuments");
+                });
+
             modelBuilder.Entity("FindDoc.Data.Entity.UserProfile.Profile", b =>
                 {
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("Age")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Avatar")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Facebook")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Instagram")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Twitter")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VK")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ApplicationUserId");
 
-                    b.ToTable("Profiles");
+                    b.ToTable("Profile");
+                });
+
+            modelBuilder.Entity("FindDoc.Data.Entity.UserProfile.Relatives.Relative", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PatientProfileApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telegram")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Viber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Whatsapp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PatientProfileApplicationUserId");
+
+                    b.ToTable("Relative");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -231,25 +348,83 @@ namespace FindDoc.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("FindDoc.Data.Entity.UserProfile.DoctorProfile", b =>
+                {
+                    b.HasBaseType("FindDoc.Data.Entity.UserProfile.Profile");
+
+                    b.Property<string>("Degree")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Department")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Experience")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Hospital")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsApproved")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Speciality")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("University")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("DoctorProfiles");
+                });
+
+            modelBuilder.Entity("FindDoc.Data.Entity.UserProfile.PatientProfile", b =>
+                {
+                    b.HasBaseType("FindDoc.Data.Entity.UserProfile.Profile");
+
+                    b.Property<string>("AllergicReactions")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BloodGroup")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("PatientProfiles");
+                });
+
             modelBuilder.Entity("FindDoc.Data.Entity.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
                     b.Property<string>("UserProfileId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasIndex("UserProfileId")
+                        .IsUnique()
+                        .HasFilter("[UserProfileId] IS NOT NULL");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
-            modelBuilder.Entity("FindDoc.Data.Entity.UserProfile.Profile", b =>
+            modelBuilder.Entity("FindDoc.Data.Entity.UserProfile.Documents.CerificationDocuments", b =>
                 {
-                    b.HasOne("FindDoc.Data.Entity.ApplicationUser", "ApplicationUser")
-                        .WithOne("UserProfile")
-                        .HasForeignKey("FindDoc.Data.Entity.UserProfile.Profile", "ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("FindDoc.Data.Entity.UserProfile.DoctorProfile", null)
+                        .WithMany("Cerifications")
+                        .HasForeignKey("DoctorProfileApplicationUserId");
+                });
 
-                    b.Navigation("ApplicationUser");
+            modelBuilder.Entity("FindDoc.Data.Entity.UserProfile.Documents.SecureDocuments", b =>
+                {
+                    b.HasOne("FindDoc.Data.Entity.UserProfile.DoctorProfile", null)
+                        .WithMany("SecureDocuments")
+                        .HasForeignKey("DoctorProfileApplicationUserId");
+                });
+
+            modelBuilder.Entity("FindDoc.Data.Entity.UserProfile.Relatives.Relative", b =>
+                {
+                    b.HasOne("FindDoc.Data.Entity.UserProfile.PatientProfile", null)
+                        .WithMany("Relatives")
+                        .HasForeignKey("PatientProfileApplicationUserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -303,9 +478,81 @@ namespace FindDoc.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("FindDoc.Data.Entity.UserProfile.DoctorProfile", b =>
+                {
+                    b.HasOne("FindDoc.Data.Entity.UserProfile.Profile", null)
+                        .WithOne()
+                        .HasForeignKey("FindDoc.Data.Entity.UserProfile.DoctorProfile", "ApplicationUserId")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("FindDoc.Data.Entity.UserProfile.PatientProfile", b =>
+                {
+                    b.HasOne("FindDoc.Data.Entity.UserProfile.Profile", null)
+                        .WithOne()
+                        .HasForeignKey("FindDoc.Data.Entity.UserProfile.PatientProfile", "ApplicationUserId")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("FindDoc.Data.Entity.ApplicationUser", b =>
                 {
+                    b.HasOne("FindDoc.Data.Entity.UserProfile.Profile", "UserProfile")
+                        .WithOne("ApplicationUser")
+                        .HasForeignKey("FindDoc.Data.Entity.ApplicationUser", "UserProfileId");
+
+                    b.OwnsMany("FindDoc.Data.Entity.Appointments.Appointment", "Appointments", b1 =>
+                        {
+                            b1.Property<string>("DoctorId")
+                                .HasColumnType("nvarchar(450)");
+
+                            b1.Property<string>("Id")
+                                .HasColumnType("nvarchar(450)");
+
+                            b1.Property<DateTime>("AppointmentDate")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<bool>("Completed")
+                                .HasColumnType("bit");
+
+                            b1.Property<bool>("IsApprovedByDoctor")
+                                .HasColumnType("bit");
+
+                            b1.Property<string>("PatientId")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("Text")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("DoctorId", "Id");
+
+                            b1.ToTable("Appointments");
+
+                            b1.WithOwner()
+                                .HasForeignKey("DoctorId");
+                        });
+
+                    b.Navigation("Appointments");
+
                     b.Navigation("UserProfile");
+                });
+
+            modelBuilder.Entity("FindDoc.Data.Entity.UserProfile.Profile", b =>
+                {
+                    b.Navigation("ApplicationUser");
+                });
+
+            modelBuilder.Entity("FindDoc.Data.Entity.UserProfile.DoctorProfile", b =>
+                {
+                    b.Navigation("Cerifications");
+
+                    b.Navigation("SecureDocuments");
+                });
+
+            modelBuilder.Entity("FindDoc.Data.Entity.UserProfile.PatientProfile", b =>
+                {
+                    b.Navigation("Relatives");
                 });
 #pragma warning restore 612, 618
         }

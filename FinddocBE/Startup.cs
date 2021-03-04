@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using FindDoc.Common.Auth;
 using FindDoc.Data.Context;
 using FindDoc.Data.Entity;
+using FindDoc.Data.Repositories.ApplicationUsers;
+using FindDoc.Data.Repositories.Appointments;
+using FindDoc.Data.UnitOfWork;
 using FindDoc.Services.Auth;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -45,6 +48,9 @@ namespace FinddocBE
 
             // TODO move to the method
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IApplicationUserRepository, ApplicationUserRepository>();
 
             services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>()

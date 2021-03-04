@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using FindDoc.Common.Auth;
 using FindDoc.Common.Dtos.UserDto;
+using FindDoc.Common.Exceptions.AuthExceptions;
 using FindDoc.Services.Auth;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,16 +21,28 @@ namespace FinddocBE.Controllers.Auth
 
         [HttpPost]
         [Route("registerPatient")]
-        public async Task<AuthResponse> RegisterPatientAsync(RegisterModel model)
+        public async Task<ActionResult<AuthResponse>> RegisterPatientAsync(RegisterModel model)
         {
-            return await _authService.RegisterPatientAsync(model);
+            try
+            {
+                return Ok(await _authService.RegisterPatientAsync(model));
+            }catch(RegisterFailedException e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpPost]
         [Route("registerDoctor")]
-        public async Task<AuthResponse> RegisterDoctorAsync(RegisterModel model)
+        public async Task<ActionResult<AuthResponse>> RegisterDoctorAsync(RegisterModel model)
         {
-            return await _authService.RegisterDoctorAsync(model);
+            try
+            {
+                return Ok(await _authService.RegisterDoctorAsync(model));
+            }catch(RegisterFailedException e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpPost]
@@ -39,9 +52,8 @@ namespace FinddocBE.Controllers.Auth
             try
             {
                 return Ok(await _authService.LoginUserAsync(model));
-                // TODO create new login exception
             }
-            catch (Exception e)
+            catch (LoginFailedException)
             {
                 return Unauthorized();
             }

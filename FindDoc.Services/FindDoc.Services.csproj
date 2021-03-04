@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <Folder Include="Auth\" />
+    <Folder Include="DoctorsServices\" />
+    <Folder Include="DoctorsServices\Appointments\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FindDoc.Common\FindDoc.Common.csproj" />

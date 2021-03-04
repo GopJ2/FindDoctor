@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FindDoc.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210225183429_AddProfileToUsers")]
-    partial class AddProfileToUsers
+    [Migration("20210225201531_AddProfilesToUsers")]
+    partial class AddProfilesToUsers
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -233,6 +233,20 @@ namespace FindDoc.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("FindDoc.Data.Entity.UserProfile.DoctorProfile", b =>
+                {
+                    b.HasBaseType("FindDoc.Data.Entity.UserProfile.Profile");
+
+                    b.ToTable("DoctorProfiles");
+                });
+
+            modelBuilder.Entity("FindDoc.Data.Entity.UserProfile.PatientProfile", b =>
+                {
+                    b.HasBaseType("FindDoc.Data.Entity.UserProfile.Profile");
+
+                    b.ToTable("PatientProfiles");
+                });
+
             modelBuilder.Entity("FindDoc.Data.Entity.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
@@ -302,6 +316,24 @@ namespace FindDoc.Data.Migrations
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("FindDoc.Data.Entity.UserProfile.DoctorProfile", b =>
+                {
+                    b.HasOne("FindDoc.Data.Entity.UserProfile.Profile", null)
+                        .WithOne()
+                        .HasForeignKey("FindDoc.Data.Entity.UserProfile.DoctorProfile", "ApplicationUserId")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("FindDoc.Data.Entity.UserProfile.PatientProfile", b =>
+                {
+                    b.HasOne("FindDoc.Data.Entity.UserProfile.Profile", null)
+                        .WithOne()
+                        .HasForeignKey("FindDoc.Data.Entity.UserProfile.PatientProfile", "ApplicationUserId")
+                        .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
                 });
 

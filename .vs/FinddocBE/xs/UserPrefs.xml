@@ -1,50 +1,44 @@
 ﻿<Properties StartupConfiguration="{5EDFE491-6269-4FE5-AAD3-3D15F3A338C3}|Default">
   <MonoDevelop.Ide.ItemProperties.FinddocBE PreferredExecutionTarget="/Applications/Firefox.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FindDoc.Common/Auth/UserRoles.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FindDoc.Data/Repositories/ApplicationUsers/ApplicationUserRepository.cs">
     <Files>
-      <File FileName="FindDoc.Services/Auth/AuthService.cs" Line="16" Column="37" />
-      <File FileName="FindDoc.Common/Auth/AuthResponse.cs" Line="16" Column="19" />
-      <File FileName="FinddocBE/Controllers/Auth/AuthController.cs" Line="34" Column="1" />
-      <File FileName="FindDoc.Data/Entity/Users/ApplicationUser.cs" Line="7" Column="12" />
-      <File FileName="FindDoc.Data/Entity/UserProfile/Profile.cs" Line="11" Column="1" />
-      <File FileName="FindDoc.Data/Context/ApplicationDbContext.cs" Line="4" Column="28" />
-      <File FileName="FindDoc.Data/Mappers/UserProfile/ProfileMapper.cs" Line="8" Column="33" />
-      <File FileName="FindDoc.Data/Mappers/ModelBuilderMapperExtended.cs" Line="13" Column="69" />
-      <File FileName="FinddocBE/Program.cs" Line="10" Column="20" />
-      <File FileName="FindDoc.Services/Auth/IAuthService.cs" Line="11" Column="73" />
-      <File FileName="FinddocBE/Startup.cs" Line="9" Column="29" />
-      <File FileName="FindDoc.Data/Mappers/Users/ApplicationUserMapper.cs" Line="14" Column="45" />
-      <File FileName="FindDoc.Common/Auth/UserRoles.cs" Line="8" Column="2" />
+      <File FileName="FindDoc.Data/Repositories/ApplicationUsers/AppicationUserRepository.cs" Line="8" Column="93" />
+      <File FileName="FindDoc.Data/Repositories/ApplicationUsers/IApplicationUserRepository.cs" Line="9" Column="6" />
+      <File FileName="FindDoc.Services/Auth/AuthService.cs" Line="105" Column="14" />
+      <File FileName="FindDoc.Services/Auth/IAuthService.cs" Line="1" Column="1" />
+      <File FileName="FinddocBE/Controllers/Auth/AuthController.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Option id="ShowAllFiles" value="True" />
           <Node name="FinddocBE" expanded="True">
-            <Node name="FindDoc.Common" expanded="True">
-              <Node name="FindDoc.Common" expanded="True">
-                <Node name="Auth" expanded="True">
-                  <Node name="UserRoles.cs" selected="True" />
-                </Node>
-              </Node>
-            </Node>
             <Node name="FindDoc.Data" expanded="True">
               <Node name="FindDoc.Data" expanded="True">
-                <Node name="Entity" expanded="True">
+                <Node name="Context" expanded="True" />
+                <Node name="Entity" expanded="True" />
+                <Node name="Mappers" expanded="True">
                   <Node name="Users" expanded="True" />
                 </Node>
-                <Node name="Mappers" expanded="True" />
-                <Node name="Migrations" expanded="True" />
+                <Node name="Repositories" expanded="True">
+                  <Node name="ApplicationUsers" expanded="True">
+                    <Node name="ApplicationUserRepository.cs" selected="True" />
+                  </Node>
+                </Node>
               </Node>
             </Node>
             <Node name="FindDoc.Services" expanded="True">
               <Node name="FindDoc.Services" expanded="True">
                 <Node name="Auth" expanded="True" />
+                <Node name="DoctorsServices" expanded="True" />
               </Node>
             </Node>
             <Node name="FinddocBE" expanded="True">
               <Node name="Controllers" expanded="True">
                 <Node name="Auth" expanded="True" />
+                <Node name="Doctors" expanded="True">
+                  <Node name="Appointments" expanded="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
@@ -55,7 +49,10 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FindDoc.Data/Repositories/GenericRepository.cs" relfile="FindDoc.Data/Repositories/GenericRepository.cs" line="44" column="1" />
+      <Breakpoint file="/Users/illia_shevchenko/Projects/FindDoctors/FindDoctor/FindDoc.Services/Auth/AuthService.cs" relfile="FindDoc.Services/Auth/AuthService.cs" line="87" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

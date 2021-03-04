@@ -184,21 +184,21 @@ export const HomeScreen: React.FC<TProps> = props => {
 };
 
 const styles = StyleSheet.create({
-  container: { paddingVertical: 24 },
-  upcomingAppoinmentRow: {
-    marginHorizontal: 16
-  },
-  touchableDoctorItem: {
-    paddingStart: 16,
-    paddingEnd: 8
-  },
-  campaignsContainer: {
-    paddingHorizontal: 16,
-    paddingVertical: 12
-  },
-  departmentsContainer: {
-    paddingHorizontal: 16,
-    paddingVertical: 12
-  },
-  horizontalDivider: { width: 12 }
+      container: { paddingVertical: 24 },
+      upcomingAppoinmentRow: {
+        marginHorizontal: 16
+      },
+      touchableDoctorItem: {
+        paddingStart: 16,
+        paddingEnd: 8
+      },
+      campaignsContainer: {
+        paddingHorizontal: 16,
+        paddingVertical: 12
+      },
+      departmentsContainer: {
+        paddingHorizontal: 16,
+        paddingVertical: 12
+      },
+      horizontalDivider: { width: 12 }
 });

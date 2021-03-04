@@ -8,6 +8,8 @@
     <Folder Include="Auth\" />
     <Folder Include="Dtos\" />
     <Folder Include="Dtos\UserDto\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Exceptions\AuthExceptions\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FindDoc.Data\FindDoc.Data.csproj" />

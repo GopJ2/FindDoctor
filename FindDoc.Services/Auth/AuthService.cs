@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using FindDoc.Common.Auth;
 using FindDoc.Common.Dtos.UserDto;
+using FindDoc.Common.Exceptions.AuthExceptions;
 using FindDoc.Data.Entity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
@@ -29,11 +30,11 @@ namespace FindDoc.Services.Auth
             _jwtTokenConfig = JWTConfig;
         }
 
-        public async Task<AuthResponse> LoginUserAsync(LoginModel loginModel)
+        public async Task<AuthResponse> LoginUserAsync(LoginModel model)
         {
-            var user = await _userManager.FindByNameAsync(loginModel.Username);
+            var user = await _userManager.FindByNameAsync(model.Username);
 
-            if (user != null && await _userManager.CheckPasswordAsync(user, loginModel.Password))
+            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
                 var userRole = (await _userManager.GetRolesAsync(user)).First();
 
@@ -64,52 +65,28 @@ namespace FindDoc.Services.Auth
                         Name = user.UserName,
                         Id = user.Id,
                         Role = userRole
-                    },
-                    Status = 200,
+                    }
                 };
             }
 
-            return new AuthResponse
-            {
-                Status = 200,
-                Message = "Provided credentials are incorrect"
-            };
+            throw new LoginFailedException();
         }
 
         public async Task<AuthResponse> RegisterPatientAsync(RegisterModel model)
         {
-            var userExists = await _userManager.FindByNameAsync(model.Username);
-            if (userExists != null)
-                return new AuthResponse { Status = 200, Message = "User already exists!" };
-
-            ApplicationUser user = new ApplicationUser()
-            {
-                Email = model.Email,
-                SecurityStamp = Guid.NewGuid().ToString(),
-                UserName = model.Username
-            };
-
-            var result = await _userManager.CreateAsync(user, model.Password);
-            if (!result.Succeeded) {
-                return new AuthResponse { Status = 200, Message = "User creation failed! Please check user details and try again." };
-            }
-
-            if (!await _roleManager.RoleExistsAsync(UserRoles.Patient))
-                await _roleManager.CreateAsync(new IdentityRole(UserRoles.Patient));
-
-            if (await _roleManager.RoleExistsAsync(UserRoles.Patient))
-            {
-                await _userManager.AddToRoleAsync(user, UserRoles.Patient);
-            }
-
-            return new AuthResponse { Status = 200, Message = "User created successfully!" };
+            return await RegisterEntity(model, UserRoles.Patient);
         }
 
         public async Task<AuthResponse> RegisterDoctorAsync(RegisterModel model)
         {
+            return await RegisterEntity(model, UserRoles.Doctor);
+        }
+
+        private async Task<AuthResponse> RegisterEntity(RegisterModel model, string role)
+        {
             var userExists = await _userManager.FindByNameAsync(model.Username);
             if (userExists != null)
-                return new AuthResponse { Status = 200, Message = "User already exists!" };
+                throw new RegisterFailedException("User already exists!");
 
             ApplicationUser user = new ApplicationUser()
             {
@@ -119,17 +96,25 @@ namespace FindDoc.Services.Auth
             };
             var result = await _userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
-                return new AuthResponse { Status = 200, Message = "User creation failed! Please check user details and try again." };
+                throw new RegisterFailedException("User creation failed! Please check user details and try again.");
 
-            if (!await _roleManager.RoleExistsAsync(UserRoles.Doctor))
-                await _roleManager.CreateAsync(new IdentityRole(UserRoles.Doctor));
-            
-            if (await _roleManager.RoleExistsAsync(UserRoles.Doctor))
+            if (!await _roleManager.RoleExistsAsync(role))
             {
-                await _userManager.AddToRoleAsync(user, UserRoles.Doctor);
+                await _roleManager.CreateAsync(new IdentityRole(role));
             }
+                await _userManager.AddToRoleAsync(user, role);
 
-            return new AuthResponse { Status = 200, Message = "User created successfully!" };
+            //Map to dto
+            return new AuthResponse
+            {
+                User = new UserDto
+                {
+                    Email = user.Email,
+                    Name = user.NormalizedUserName,
+                    Id = user.Id,
+                    Role = role
+                }
+            };
         }
     }
 }

@@ -11,6 +11,8 @@ namespace FindDoc.Data.Mappers
        {
             modelBuilder.ApplyConfiguration(new ProfileMapper());
             modelBuilder.ApplyConfiguration(new ApplicationUserMapper());
+            modelBuilder.ApplyConfiguration(new DoctorProfileMapper());
+            modelBuilder.ApplyConfiguration(new PatientProfileMapper());
         }
     }
 }
